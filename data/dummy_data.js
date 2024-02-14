@@ -1,4 +1,5 @@
 import NewsArticle from "../models/article";
+import Categories from "../models/categories";
 
 export const NEWSARTICLES = [
   new NewsArticle(
@@ -27,4 +28,14 @@ export const NEWSARTICLES = [
     "2024-02-13T23:07:18.9337173Z",
     "Media caption, Watch: A look at New Yorks snowiest day in two years The north-eastern US coast has been hit by one of the worst snow storms in two years, blanketing cities with over a foot of snow a… [+3120 chars]"
   ),
+];
+
+export const CATEGORIES = [
+  { id: 1, title: "business" },
+  { id: 2, title: "entertainment" },
+  { id: 3, title: "general" },
+  { id: 4, title: "health" },
+  { id: 5, title: "science" },
+  { id: 6, title: "sports" },
+  { id: 7, title: "technology" },
 ];
