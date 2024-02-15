@@ -1,26 +1,32 @@
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 
 export default function TitleBar({ label }) {
   return (
-    <View className="px-4 my-4 justify-between flex-row items-center">
-      <Text
-        className="text-xl text-green-800 dark:text-white "
-        style={{
-          fontFamily: "SpaceGroteskBold",
-        }}
-      >
-        {label}
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.label}>{label}</Text>
 
-      <Text
-        className="text-base text-gray-600 dark:text-neutral-300 "
-        style={{
-          fontFamily: "SpaceGroteskMedium",
-        }}
-      >
-        View all
-      </Text>
+      <Text style={styles.viewAll}>View all</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 16,
+    marginTop: 16,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  label: {
+    fontFamily: "SpaceGroteskBold",
+    fontSize: 20,
+    color: "black",
+  },
+  viewAll: {
+    fontFamily: "SpaceGroteskMedium",
+    fontSize: 14,
+    color: "#525252",
+  },
+});

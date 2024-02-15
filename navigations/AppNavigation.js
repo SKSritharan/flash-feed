@@ -7,7 +7,6 @@ import { useColorScheme } from "nativewind";
 
 import NewsOverview from "../screens/NewsOverview";
 import NewsDetail from "../screens/NewsDetail";
-import DiscoverScreen from "../screens/DiscoverScreen";
 import FavouritesScreen from "../screens/FavouritesScreen";
 import ProfileScreen from "../screens/ProfileScreen";
 import SplashScreens from "../screens/SplashScreens";
@@ -21,6 +20,7 @@ const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  
   const TabNavigator = () => {
     return (
       <Tab.Navigator
