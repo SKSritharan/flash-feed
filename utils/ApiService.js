@@ -3,7 +3,7 @@ import axios from "axios";
 const BASE_URL = "https://newsapi.org/v2";
 const API_KEY = process.env.EXPO_PUBLIC_NEWS_API_KEY;
 
-const BREAKING_NEWS_URL = `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`;
+const LATEST_NEWS_URL = `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`;
 const RECOMMENDED_NEWS_URL = `${BASE_URL}/top-headlines?country=us&category=business&apiKey=${API_KEY}`;
 
 const DISCOVER_NEWS_URL = (category) =>
@@ -28,8 +28,8 @@ const newsApiCall = async (endpoint, params) => {
   }
 };
 
-export const fetchBreakingNews = async () => {
-  return await newsApiCall(BREAKING_NEWS_URL);
+export const fetchLatestNews = async () => {
+  return await newsApiCall(LATEST_NEWS_URL);
 };
 
 export const fetchRecommendedNews = async () => {

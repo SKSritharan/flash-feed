@@ -1,9 +1,11 @@
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
-const NewsDetail = ()=>{
-    return (
-        <View></View>
-    );
+const NewsDetail = () => {
+  return (
+    <View>
+      <Text>NewsDetail</Text>
+    </View>
+  );
 };
 
 export default NewsDetail;

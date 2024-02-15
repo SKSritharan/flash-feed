@@ -1,32 +1,67 @@
-import { View, StyleSheet, Text, ScrollView } from "react-native";
-import LatestNewsList from "../components/LatestNews/LatestNewsList";
-import { NEWSARTICLES } from "../data/dummy_data";
+import { View, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { useColorScheme } from "nativewind";
+import { StatusBar } from "expo-status-bar";
+import { useQuery } from "@tanstack/react-query";
+import { heightPercentageToDP as hp } from "react-native-responsive-screen";
+
+import NewsSection from "../components/NewsSection/NewsSection";
+import Loading from "../components/UI/Loading";
+import AppBar from "../components/UI/AppBar";
+import TitleBar from "../components/UI/TitleBar";
+import { fetchLatestNews, fetchRecommendedNews } from "../utils/ApiService";
+import LatestNews from "../components/LatestNews/LatestNewsList";
 
 const NewsOverview = () => {
+  const { colorScheme, toggleColorScheme } = useColorScheme();
+
+  const { data, isLoading: isLatestLoading } = useQuery({
+    queryKey: ["latestNews"],
+    queryFn: fetchLatestNews,
+  });
+
+  const { data: recommendedNew, isLoading: isRecommendedLoading } = useQuery({
+    queryKey: ["recommededNewss"],
+    queryFn: fetchRecommendedNews,
+  });
+
   return (
-    <ScrollView style={{ padding: 16 }}>
-      <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Latest News</Text>
-        <LatestNewsList data={NEWSARTICLES} />
+    <SafeAreaView className=" flex-1 bg-white dark:bg-neutral-900">
+      <StatusBar style={colorScheme == "dark" ? "light" : "dark"} />
+
+      <View>
+        <AppBar />
+
+        {isLatestLoading ? (
+          <Loading />
+        ) : (
+          <View className="">
+            <TitleBar label="Latest News" />
+            <LatestNews label="Latest News" data={data.articles} />
+          </View>
+        )}
+
+        <View>
+          <TitleBar label="Recommended" />
+          <ScrollView
+            contentContainerStyle={{
+              paddingBottom: hp(80),
+            }}
+          >
+            {isRecommendedLoading ? (
+              <Loading />
+            ) : (
+              <NewsSection
+                label="Recommendation"
+                newsProps={recommendedNew.articles}
+              />
+            )}
+          </ScrollView>
+        </View>
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginVertical: 16,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  categoryButton: {
-    marginRight: 16,
-    fontSize: 16,
-    color: "blue",
-  },
-});
 
 export default NewsOverview;
