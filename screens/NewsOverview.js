@@ -43,7 +43,7 @@ const NewsOverview = () => {
           </View>
         )}
 
-        <View>
+        <View style={{ marginTop: hp(2) }}>
           <NewsCategory />
         </View>
       </View>
