@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginRight: 8,
   },
   roundedButton: {
     borderRadius: 20,
