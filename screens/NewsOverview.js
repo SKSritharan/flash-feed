@@ -12,6 +12,7 @@ import AppBar from "../components/UI/AppBar";
 import TitleBar from "../components/UI/TitleBar";
 import { fetchLatestNews, fetchRecommendedNews } from "../utils/ApiService";
 import LatestNews from "../components/LatestNews/LatestNewsList";
+import NewsCategory from "../components/NewsCategory.js/NewsCategory";
 
 const NewsOverview = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -43,21 +44,7 @@ const NewsOverview = () => {
         )}
 
         <View>
-          <TitleBar label="Recommended" />
-          <ScrollView
-            contentContainerStyle={{
-              paddingBottom: hp(80),
-            }}
-          >
-            {isRecommendedLoading ? (
-              <Loading />
-            ) : (
-              <NewsSection
-                label="Recommendation"
-                newsProps={recommendedNew.articles}
-              />
-            )}
-          </ScrollView>
+          <NewsCategory />
         </View>
       </View>
     </SafeAreaView>
