@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Dimensions } from "react-native";
+import { View, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import Carousal from "react-native-snap-carousel";
 import LatestNewsCard from "./LatestNewsCard";
@@ -10,7 +10,7 @@ export default function LatestNewsList({ data, label }) {
   const navigation = useNavigation();
 
   const handleClick = (item) => {
-    navigation.navigate("NewsDetails", item);
+    navigation.navigate("NewsDetail", item);
   };
 
   return (

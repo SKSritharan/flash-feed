@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 
 export default function TitleBar({ label }) {
@@ -6,7 +7,17 @@ export default function TitleBar({ label }) {
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
 
-      <Text style={styles.viewAll}>View all</Text>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        style={{
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Text style={styles.viewAll}>See all</Text>
+        <Ionicons name="arrow-forward-outline" size={20} color="#0080FF" />
+      </TouchableOpacity>
     </View>
   );
 }
@@ -20,13 +31,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   label: {
-    fontFamily: "SpaceGroteskBold",
+    fontFamily: "NunitoBold",
     fontSize: 20,
     color: "black",
   },
   viewAll: {
-    fontFamily: "SpaceGroteskMedium",
+    fontFamily: "NunitoRegular",
+    fontWeight: "bold",
     fontSize: 14,
-    color: "#525252",
+    color: "#0080FF",
   },
 });

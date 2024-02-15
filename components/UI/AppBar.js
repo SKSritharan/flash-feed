@@ -34,12 +34,8 @@ export default function AppBar() {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={toggleColorScheme}>
-          {colorScheme == "dark" ? (
-            <Ionicons name="sunny" size={25} color="yellow" />
-          ) : (
-            <Ionicons name="moon" size={25} color="gray" />
-          )}
+        <TouchableOpacity onPress={{}} style={styles.notificationBtn}>
+          <Ionicons name="notifications-outline" size={25} color="white" />
         </TouchableOpacity>
       </View>
     </View>
@@ -55,7 +51,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   title: {
-    fontFamily: "SpaceGroteskBold",
+    fontFamily: "NunitoBold",
     fontSize: 20,
     color: "#FF3A44",
   },
@@ -63,6 +59,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  notificationBtn: {
+    backgroundColor: "#FF3A44",
+    borderRadius: 20,
+    marginLeft: 12,
+    padding: 6,
+  },
+
   searchButton: {
     borderRadius: 20,
     padding: 2,

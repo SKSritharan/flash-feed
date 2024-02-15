@@ -1,18 +1,16 @@
-import { View, Text, StyleSheet } from "react-native";
-import React, { useEffect, useCallback } from "react";
-// import { FadeInDown } from "react-native-reanimated";
+import { View, Image, StyleSheet } from "react-native";
+import React, { useCallback } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useNavigation } from "@react-navigation/native";
-import { LinearGradient } from "expo-linear-gradient";
 
 export default function SplashScreens() {
   const navigation = useNavigation();
 
   const [fontsLoaded, fontError] = useFonts({
-    SpaceGroteskSemiBold: require("../assets/fonts/Nunito-SemiBold.ttf"),
-    SpaceGroteskBold: require("../assets/fonts/Nunito-Bold.ttf"),
-    SpaceGroteskMedium: require("../assets/fonts/Nunito-Regular.ttf"),
+    NunitoSemiBold: require("../assets/fonts/Nunito-SemiBold.ttf"),
+    NunitoBold: require("../assets/fonts/Nunito-Bold.ttf"),
+    NunitoRegular: require("../assets/fonts/Nunito-Regular.ttf"),
   });
 
   const onLayoutRootView = useCallback(async () => {
@@ -27,27 +25,12 @@ export default function SplashScreens() {
 
   return (
     <View style={styles.container}>
-      <LinearGradient
-        colors={["rgba(255, 58, 68, 0.95)", "rgba(255, 58, 68, 0.95)"]}
-        style={{
-          position: "absolute",
-          bottom: 0,
-          width: "100%",
-          height: "100%",
-          borderBottomLeftRadius: 24,
-          borderBottomRightRadius: 24,
-        }}
-        start={{ x: 0.5, y: 0 }}
-        end={{ x: 0.5, y: 1 }}
-      />
-      <View
-        onLayout={onLayoutRootView}
-        className=" "
-        // entering={FadeInDown.delay(200).duration(700).springify().damping(12)}
-      >
-        <Text className="text-white text-3xl font-extrabold uppercase">
-          Flash Feed
-        </Text>
+      <View onLayout={onLayoutRootView}>
+        <Image
+          source={require("../assets/adaptive-icon.png")}
+          resizeMode="contain"
+          style={{ width: 200, height: 200 }}
+        />
       </View>
     </View>
   );

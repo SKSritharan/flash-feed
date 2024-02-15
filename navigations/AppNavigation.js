@@ -20,7 +20,7 @@ const Stack = createNativeStackNavigator();
 
 export default function AppNavigation() {
   const { colorScheme, toggleColorScheme } = useColorScheme();
-  
+
   const TabNavigator = () => {
     return (
       <Tab.Navigator
@@ -54,7 +54,7 @@ export default function AppNavigation() {
           tabBarInactiveTintColor: "gray",
           tabBarLabelStyle: {
             fontSize: 12,
-            fontFamily: "SpaceGroteskMedium",
+            fontFamily: "NunitoRegular",
           },
           tabBarStyle: {
             backgroundColor: colorScheme == "dark" ? "black" : "white",

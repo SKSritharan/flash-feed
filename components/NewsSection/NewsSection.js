@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: hp(1.7),
     textTransform: "capitalize",
-    fontFamily: "SpaceGroteskBold",
+    fontFamily: "NunitoBold",
     color: "#333333",
   },
   dateText: {

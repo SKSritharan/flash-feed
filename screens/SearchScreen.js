@@ -61,7 +61,7 @@ export default function SearchScreen() {
           style={{
             flex: 1,
             fontSize: 16,
-            fontFamily: "SpaceGroteskMedium",
+            fontFamily: "NunitoRegular",
             paddingVertical: 12,
             paddingHorizontal: 16,
             backgroundColor: "#f0f0f0",
@@ -77,7 +77,7 @@ export default function SearchScreen() {
         <Text
           style={{
             fontSize: 20,
-            fontFamily: "SpaceGroteskBold",
+            fontFamily: "NunitoBold",
             color: "#333",
           }}
         >
