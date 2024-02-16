@@ -18,7 +18,7 @@ Flash Feed is a simple news app that allows users to discover the latest news an
     </div>
     <div style="text-align: center; width: 22%;">
         <p>Single News page</p>
-        <img src="./assets/screenshots/news.png" alt="Single News page" title="Single News page" style="width: 100%; padding: 5px;" />
+        <img src="./assets/screenshots/news_page.png" alt="Single News page" title="Single News page" style="width: 100%; padding: 5px;" />
     </div>
     <div style="text-align: center; width: 22%;">
         <p>Search Article</p>
