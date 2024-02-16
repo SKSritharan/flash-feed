@@ -6,11 +6,10 @@ import { StatusBar } from "expo-status-bar";
 import { useQuery } from "@tanstack/react-query";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
-import NewsSection from "../components/NewsSection/NewsSection";
 import Loading from "../components/UI/Loading";
 import AppBar from "../components/UI/AppBar";
 import TitleBar from "../components/UI/TitleBar";
-import { fetchLatestNews, fetchRecommendedNews } from "../utils/ApiService";
+import { fetchLatestNews } from "../utils/ApiService";
 import LatestNews from "../components/LatestNews/LatestNewsList";
 import NewsCategory from "../components/NewsCategory.js/NewsCategory";
 
@@ -20,11 +19,6 @@ const NewsOverview = () => {
   const { data, isLoading: isLatestLoading } = useQuery({
     queryKey: ["latestNews"],
     queryFn: fetchLatestNews,
-  });
-
-  const { data: recommendedNew, isLoading: isRecommendedLoading } = useQuery({
-    queryKey: ["recommededNewss"],
-    queryFn: fetchRecommendedNews,
   });
 
   return (

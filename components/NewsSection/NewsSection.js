@@ -6,10 +6,11 @@ import {
   Dimensions,
   Text,
   TouchableOpacity,
-  Image,
+  ImageBackground,
   FlatList,
   StyleSheet,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { HeartIcon } from "react-native-heroicons/solid";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 
@@ -105,18 +106,21 @@ export default function NewsSection({ newsProps }) {
         key={index}
         onPress={() => handleClick(item)}
       >
-        <View style={styles.newsContainer}>
-          <View style={styles.imageContainer}>
-            <Image
-              source={{
-                uri:
-                  item.urlToImage ||
-                  "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
-              }}
-              style={styles.image}
-              resizeMode="cover"
-            />
-          </View>
+        <ImageBackground
+          source={{
+            uri:
+              item.urlToImage ||
+              "https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmV3c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+          }}
+          style={styles.imageBackground}
+          resizeMode="cover"
+        >
+          <LinearGradient
+            colors={["transparent", "rgba(0,0,0,0.9)"]}
+            style={styles.gradient}
+            start={{ x: 0.5, y: 0 }}
+            end={{ x: 0.5, y: 1 }}
+          />
 
           <View style={styles.textContainer}>
             <Text style={styles.authorText}>
@@ -141,7 +145,7 @@ export default function NewsSection({ newsProps }) {
               <HeartIcon color={bookmarkStatus[index] ? "red" : "gray"} />
             </TouchableOpacity>
           </View>
-        </View>
+        </ImageBackground>
       </TouchableOpacity>
     );
   };
@@ -166,56 +170,45 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
   itemContainer: {
-    marginBottom: 8,
-    marginHorizontal: 8,
+    positional: "relative",
+    marginVertical: 8,
+    marginHorizontal: 16,
   },
-  newsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
-    backgroundColor: "#ffffff",
+  imageBackground: {
+    width: width - 32,
+    height: hp(30),
     borderRadius: 12,
     overflow: "hidden",
+    justifyContent: "flex-end",
   },
-  imageContainer: {
-    width: width * 0.4,
-    overflow: "hidden",
-  },
-  image: {
-    width: "100%",
-    height: hp(10),
-    borderRadius: 12,
+  gradient: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   textContainer: {
-    width: "45%",
-    paddingHorizontal: 8,
-    justifyContent: "center",
+    padding: 12,
   },
   authorText: {
     fontSize: hp(1.5),
     fontWeight: "bold",
-    color: "#333333",
+    color: "#ffffff",
   },
   titleText: {
     fontSize: hp(1.7),
     textTransform: "capitalize",
     fontFamily: "NunitoBold",
-    color: "#333333",
+    color: "#ffffff",
   },
   dateText: {
     fontSize: hp(1.5),
-    color: "#555555",
+    color: "#ffffff",
   },
   bookmarkContainer: {
-    width: width * 0.15,
-    justifyContent: "center",
-    alignItems: "center",
+    position: "absolute",
+    top: 8,
+    right: 8,
   },
 });
