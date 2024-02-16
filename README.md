@@ -43,8 +43,8 @@ Flash Feed is a simple news app that allows users to discover the latest news an
 1. Clone the repository:
 
    ```bash
-    git clone https://github.com/your-username/flash-feed-news-app.git
-    cd flash-feed-news-app
+    git clone https://github.com/SKSritharan/flash-feed.git
+    cd flash-feed
 
    ```
 
