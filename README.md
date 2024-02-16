@@ -1,4 +1,4 @@
-![Logo](/assets/adaptive-icon.png?raw=true "Logo")
+<p align="center"><img src="./assets/adaptive-icon.png" width="400"></p>
 
 # Flash Feed News App
 
