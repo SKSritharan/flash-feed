@@ -1,3 +1,5 @@
+![Logo](/assets/adaptive-icon.png?raw=true "Logo")
+
 # Flash Feed News App
 
 Flash Feed is a simple news app that allows users to discover the latest news and save their favorite articles for later.
