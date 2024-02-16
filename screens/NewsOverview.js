@@ -11,7 +11,7 @@ import AppBar from "../components/UI/AppBar";
 import TitleBar from "../components/UI/TitleBar";
 import { fetchLatestNews } from "../utils/ApiService";
 import LatestNews from "../components/LatestNews/LatestNewsList";
-import NewsCategory from "../components/NewsCategory.js/NewsCategory";
+import NewsCategoryList from "../components/NewsCategory/NewsCategoryList";
 
 const NewsOverview = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
@@ -38,7 +38,7 @@ const NewsOverview = () => {
         )}
 
         <View style={{ marginTop: hp(2) }}>
-          <NewsCategory />
+          <NewsCategoryList />
         </View>
       </View>
     </SafeAreaView>

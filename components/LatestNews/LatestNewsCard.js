@@ -32,7 +32,6 @@ const LatestNewsCard = ({ item, handleClick }) => {
           end={{ x: 0.5, y: 1 }}
         />
 
-        {/* Title and Author */}
         <View style={styles.textContainer}>
           <View style={styles.titleContainer}>
             <Text style={styles.title}>
