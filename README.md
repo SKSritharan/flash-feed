@@ -11,7 +11,9 @@ Flash Feed is a simple news app that allows users to discover the latest news an
 
 ## Screenshots
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
+![Screenshots](./assets/screenshots/screenshots_1.png?raw=true "Screenshots")
+
+<!-- <div style="display: flex; justify-content: space-between; align-items: center;">
     <div style="text-align: center; width: 22%;">
         <p>News Overview</p>
         <img src="./assets/screenshots/overview.png" alt="News Overview" title="News Overview" style="width: 100%; padding: 5px;" />
@@ -28,7 +30,7 @@ Flash Feed is a simple news app that allows users to discover the latest news an
         <p>Saved Articles</p>
         <img src="./assets/screenshots/saved.png" alt="Saved Articles" title="Saved Articles" style="width: 100%; padding: 5px;" />
     </div>
-</div>
+</div> -->
 
 ## Technologies Used
 
