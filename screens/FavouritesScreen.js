@@ -90,7 +90,19 @@ export default function FavouritesScreen() {
         </TouchableOpacity>
       </View>
 
-      <View style={{ marginVertical: hp(2) }} className="space-y-2 ">
+      <View style={{ marginVertical: hp(2) }} className="space-y-2">
+        {savedArticles.length === 0 && (
+          <Text
+            style={{
+              fontFamily: "NunitoRegular",
+              fontSize: 16,
+              color: colorScheme == "dark" ? "white" : "black",
+              marginTop: hp(2),
+            }}
+          >
+            No saved articles yet.
+          </Text>
+        )}
         <ScrollView contentContainerStyle={{ paddingBottom: hp(2) }}>
           <NewsSection newsProps={savedArticles} label="Search Results" />
         </ScrollView>
