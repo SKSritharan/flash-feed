@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react";
 import { View, ScrollView } from "react-native";
-import React, { useEffect, useState, useReducer } from "react";
 import { useColorScheme } from "nativewind";
 import { useQuery } from "@tanstack/react-query";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
@@ -17,21 +17,26 @@ export default function NewsCategory() {
   const navigation = useNavigation();
   const [withoutRemoved, setWithoutRemoved] = useState([]);
 
-  useEffect(() => {}, [activeCategory]);
-
-  const { data: discoverNew, isLoading: isDiscoverLoading } = useQuery({
+  const {
+    data: discoverNews,
+    isLoading: isDiscoverLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["discoverNews", activeCategory],
     queryFn: () => fetchDiscoverNews(activeCategory),
   });
 
-  const handleChangeCategory = (category) => {
-    setActiveCategory(category);
-
-    const filteredArticles = discoverNew?.articles?.filter(
+  useEffect(() => {
+    const filteredArticles = discoverNews?.articles?.filter(
       (article) => article.title !== "[Removed]"
     );
-
     setWithoutRemoved(filteredArticles || []);
+  }, [discoverNews]);
+
+  const handleChangeCategory = (category) => {
+    setActiveCategory(category);
+    // Trigger a manual refetch to update the data based on the new category
+    refetch();
   };
 
   return (
