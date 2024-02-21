@@ -1,10 +1,34 @@
 import axios from "axios";
 
 const BASE_URL = "https://newsapi.org/v2";
+const BASE_BACKEND_URL = "https://10.0.2.2:5090";
 const API_KEY = process.env.EXPO_PUBLIC_NEWS_API_KEY;
 
 const LATEST_NEWS_URL = `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`;
 const RECOMMENDED_NEWS_URL = `${BASE_URL}/top-headlines?country=us&category=business&apiKey=${API_KEY}`;
+
+async function authenticate(mode, email, password) {
+  const url = `${BASE_BACKEND_URL}/${mode}`;
+
+  const response = await axios.post(url, {
+    email: email,
+    password: password,
+  });
+
+  console.log(response.data);
+
+  const token = response.data.accessToken;
+
+  return token;
+}
+
+export function createUser(email, password) {
+  return authenticate("login", email, password);
+}
+
+export function login(email, password) {
+  return authenticate("register", email, password);
+}
 
 const DISCOVER_NEWS_URL = (category) =>
   `${BASE_URL}/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`;
