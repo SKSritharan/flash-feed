@@ -28,6 +28,18 @@
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "461b8569-d62c-4eea-8eeb-52e9191122ee"
+      }
+    },
+    "owner": "sritharansk",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/461b8569-d62c-4eea-8eeb-52e9191122ee"
+    }
   }
 }

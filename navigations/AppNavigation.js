@@ -31,8 +31,6 @@ export default function AppNavigation() {
 
             if (route.name === "Home") {
               iconName = "home";
-            } else if (route.name === "Discover") {
-              iconName = "compass-outline";
             } else if (route.name === "Favourites") {
               iconName = "heart-outline";
             } else if (route.name === "Profile") {
