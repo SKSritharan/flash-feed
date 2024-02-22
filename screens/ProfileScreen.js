@@ -1,11 +1,17 @@
-import React from "react";
+import { useContext } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AuthContextProvider, { AuthContext } from "../store/auth-context";
 
 export default function ProfileScreen() {
   const { colorScheme } = useColorScheme();
+  const authCtx = useContext(AuthContext);
+
+  function logoutHandler() {
+    authCtx.logout();
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -39,7 +45,7 @@ export default function ProfileScreen() {
           <Text style={styles.profileItemText}>Settings</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.profileItem}>
+        <TouchableOpacity style={styles.profileItem} onPress={logoutHandler}>
           <Ionicons
             name="log-out-outline"
             size={24}

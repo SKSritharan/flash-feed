@@ -34,7 +34,10 @@ function AuthStack() {
 
 function AuthenticatedStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName="HomeTabs"
+    >
       <Stack.Screen name="Search" component={SearchScreen} />
       <Stack.Screen
         name="NewsDetail"
@@ -69,7 +72,11 @@ function Root() {
   }, [authCtx]);
 
   if (isTryingLogin) {
-    return <AppLoading />;
+    return (
+      <NavigationContainer>
+        <SplashScreens />
+      </NavigationContainer>
+    );
   }
 
   return <Navigation />;

@@ -17,10 +17,6 @@ export default function SplashScreens() {
     if (fontsLoaded || fontError) {
       await SplashScreen.hideAsync();
     }
-
-    setTimeout(() => {
-      navigation.navigate("HomeTabs");
-    }, 3000);
   });
 
   return (

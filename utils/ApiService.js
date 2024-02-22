@@ -1,33 +1,50 @@
 import axios from "axios";
+import { Platform } from "react-native";
 
 const BASE_URL = "https://newsapi.org/v2";
-const BASE_BACKEND_URL = "https://10.0.2.2:5090";
+const BASE_BACKEND_URL =
+  Platform.OS === "android" ? "http://10.0.2.2:5090" : "http://localhost:5090";
 const API_KEY = process.env.EXPO_PUBLIC_NEWS_API_KEY;
 
 const LATEST_NEWS_URL = `${BASE_URL}/top-headlines?country=us&apiKey=${API_KEY}`;
 const RECOMMENDED_NEWS_URL = `${BASE_URL}/top-headlines?country=us&category=business&apiKey=${API_KEY}`;
 
-async function authenticate(mode, email, password) {
-  const url = `${BASE_BACKEND_URL}/${mode}`;
+export async function login(email, password) {
+  try {
+    const url = `${BASE_BACKEND_URL}/login`;
 
-  const response = await axios.post(url, {
-    email: email,
-    password: password,
-  });
+    const response = await axios.post(url, {
+      email: email,
+      password: password,
+    });
 
-  console.log(response.data);
+    console.log(response.data);
 
-  const token = response.data.accessToken;
+    const token = response.data.accessToken;
 
-  return token;
+    return token;
+  } catch (error) {
+    console.error("Error during login:", error);
+    throw error;
+  }
 }
 
-export function createUser(email, password) {
-  return authenticate("login", email, password);
-}
+export async function createUser(email, password) {
+  try {
+    const url = `${BASE_BACKEND_URL}/register`;
 
-export function login(email, password) {
-  return authenticate("register", email, password);
+    const response = await axios.post(url, {
+      email: email,
+      password: password,
+    });
+
+    console.log(response);
+
+    return true;
+  } catch (error) {
+    console.error("Error during registration:", error);
+    throw error;
+  }
 }
 
 const DISCOVER_NEWS_URL = (category) =>
